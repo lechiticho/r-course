@@ -1,0 +1,34 @@
+---
+title: "Пингивины с острова Dream"
+format: 
+  html:
+    embed-resources: true
+    toc: true
+    toc-title: "Оглавление"
+execute: 
+    echo: false
+    warning: true
+---
+
+Данные собраны на трёх островах архипелага Палмера.
+Возьмём пингвинов с острова Dream.
+
+```{r}
+pengiuns <- read.csv("data/penguins.csv")
+dream <- subset(penguins, island == "Dream")
+nrow(dream)
+```
+# Кое-что о плавниках
+```{r}
+gigapeng <- max(dream$flipper_len)
+gigapeng
+```
+Самый большой плавник `r gigapeng` мм
+
+``` {r}
+#| fig-width: 7
+#| fig-height: 5
+#| fig-cap: "Длина плавника у пингвинов с отсрова Dream, мм"
+
+hist(dream$flipper_len)
+``` 
